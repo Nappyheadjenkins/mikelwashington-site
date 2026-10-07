@@ -1,5 +1,5 @@
 ---
-title: "Moving Rasa"
+title: Moving Rasa
 date: 2025-07-27
 permalink: /work/2025/07/27/moving-rasa/
 thumbnail: /work/wp-content/uploads/2025/07/movingrasathumb.jpg
@@ -10,7 +10,6 @@ images:
   - /work/wp-content/uploads/2025/07/Artboard-4@2x-100.jpg
   - /work/wp-content/uploads/2025/07/Artboard-3@2x-100.jpg
 ---
-
 Moving Rasa is a movement-based healing organization focused on supporting marginalized communities, particularly Southeast Asian, Pacific Islander, Black, Indigenous, and differently abled individuals, through programs that center empowerment, wellness, and community care.
 
 As a creative consultant for Moving Rasa, I provided comprehensive support across digital strategy, content creation, and merchandise design:
