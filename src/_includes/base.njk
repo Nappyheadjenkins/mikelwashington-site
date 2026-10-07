@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title and title != site.title %}{{ title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ description or site.tagline }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ title or site.title }}">
+  {% if thumbnail %}<meta property="og:image" content="{{ site.url }}{{ thumbnail }}">{% endif %}
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/work/">{{ site.title }}<span>{{ site.tagline }}</span></a>
+    <nav>
+      <a href="/work/"{% if page.url == "/work/" %} aria-current="page"{% endif %}>Work</a>
+      <a href="/work/resume/"{% if page.url == "/work/resume/" %} aria-current="page"{% endif %}>Resume</a>
+      <a href="/work/bio/"{% if page.url == "/work/bio/" %} aria-current="page"{% endif %}>Bio</a>
+      {% if site.email %}<a href="mailto:{{ site.email }}">Contact</a>{% endif %}
+    </nav>
+  </header>
+  <main>
+    {{ content | safe }}
+  </main>
+  <footer class="site-footer">
+    <p>© {{ "now" | year }} {{ site.title }}{% if site.email %} · <a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}</p>
+  </footer>
+</body>
+</html>

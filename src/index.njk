@@ -1,0 +1,17 @@
+---
+layout: base.njk
+title: Mikel Washington
+permalink: /work/
+---
+<h1 class="visually-hidden">Work</h1>
+<ul class="grid">
+{% for p in collections.projects %}
+  <li>
+    <a href="{{ p.url }}">
+      <img src="{{ p.data.thumbnail }}" alt="" loading="lazy">
+      <span class="title">{{ p.data.title }}</span>
+      <span class="year">{{ p.date | year }}</span>
+    </a>
+  </li>
+{% endfor %}
+</ul>

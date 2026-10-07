@@ -1,0 +1,50 @@
+# Pages CMS editor settings (https://pagescms.org). Sign in at app.pagescms.org with GitHub.
+media:
+  input: src/media
+  output: /media
+content:
+  - name: projects
+    label: Portfolio projects
+    type: collection
+    path: src/projects
+    filename: "{fields.title}.md"
+    view:
+      fields: [title, date]
+      sort: [date]
+      default: { sort: date, order: desc }
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: permalink, label: Web address (leave blank for new projects), type: string, hidden: true }
+      - { name: thumbnail, label: Thumbnail (shown on the Work page), type: image, required: true }
+      - { name: images, label: Project images, type: image, list: true }
+      - { name: body, label: Description, type: rich-text }
+  - name: bio
+    label: Bio
+    type: file
+    path: src/bio.md
+    fields:
+      - { name: title, type: string, hidden: true }
+      - { name: layout, type: string, hidden: true }
+      - { name: permalink, type: string, hidden: true }
+      - { name: photo, label: Headshot, type: image }
+      - { name: body, label: Bio text, type: code }
+  - name: resume
+    label: Resume
+    type: file
+    path: src/resume.md
+    fields:
+      - { name: title, type: string, hidden: true }
+      - { name: layout, type: string, hidden: true }
+      - { name: permalink, type: string, hidden: true }
+      - { name: body, label: Resume text, type: code }
+  - name: site
+    label: Site settings
+    type: file
+    path: src/_data/site.json
+    format: json
+    fields:
+      - { name: title, label: Name, type: string }
+      - { name: tagline, label: Tagline, type: string }
+      - { name: url, label: Site address, type: string }
+      - { name: email, label: Contact email (shown on every page; blank hides it), type: string }
