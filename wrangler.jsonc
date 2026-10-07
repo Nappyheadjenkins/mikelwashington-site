@@ -1,7 +1,0 @@
-// Lets Cloudflare's "Workers" setup screen deploy this site too.
-// Build command: npm run build   Deploy command: npx wrangler deploy
-{
-  "name": "mikelwashington-site",
-  "compatibility_date": "2026-10-01",
-  "assets": { "directory": "./_site", "not_found_handling": "404-page" }
-}
