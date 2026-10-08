@@ -1,30 +1,78 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if title and title != site.title %}{{ title }} · {% endif %}{{ site.title }}</title>
+  <title>{% if title and title != site.title %}{{ title }} &#8211; {{ site.title }}{% else %}{{ site.title }} &#8211; {{ site.tagline }}{% endif %}</title>
   <meta name="description" content="{{ description or site.tagline }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   <meta property="og:title" content="{{ title or site.title }}">
   {% if thumbnail %}<meta property="og:image" content="{{ site.url }}{{ thumbnail }}">{% endif %}
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/theme.css">
 </head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="/work/">{{ site.title }}<span>{{ site.tagline }}</span></a>
-    <nav>
-      <a href="/work/"{% if page.url == "/work/" %} aria-current="page"{% endif %}>Work</a>
-      <a href="/work/resume/"{% if page.url == "/work/resume/" %} aria-current="page"{% endif %}>Resume</a>
-      <a href="/work/bio/"{% if page.url == "/work/bio/" %} aria-current="page"{% endif %}>Bio</a>
-      {% if site.email %}<a href="mailto:{{ site.email }}">Contact</a>{% endif %}
-    </nav>
+<body class="{{ bodyClass or 'wp-embed-responsive wp-theme-minimalio' }}">
+<div id="page" class="site bg-cover bg-no-repeat bg-center bg-fixed">
+  <a class="skip-to-content-link screen-reader-text" href="#main"><span>Skip to Content</span></a>
+  <header id="wrapper-header" class="header py-8">
+    <div class="header__container relative container">
+      <div id="wrapper-navbar">
+        <div class="header__row flex flex-wrap justify-between items-center">
+          <div class="w-auto p-0 header__col-left">
+            <a class="inline-block mr-0 text-black header__brand whitespace-nowrap" rel="home" href="/work/" title="{{ site.title }}">{{ site.title }}</a>
+          </div>
+          <div class="flex flex-wrap items-center w-auto p-0 header__col-right">
+            <nav class="hidden menu-main-container lg:block header__main-menu-"><ul class="flex flex-wrap justify-end m-0 align-middle header__menu gap-x-8">
+              <li class="menu-item nav__item"><a href="/work/resume/" class="nav__link">Resume</a></li>
+              <li class="menu-item nav__item"><a href="/work/bio/" class="nav__link">Bio</a></li>
+            </ul></nav>
+          </div>
+        </div>
+      </div>
+      <nav class="header__mobile-button" aria-label="Mobile Toggle">
+        <button class="header__mobile-button absolute z-[110] block p-0 text-black bg-transparent border-none shadow-none main-header__menu-link md:hidden top-1/2 right-4 md:right-6 lg:right-8 -translate-y-2/4 appearance-auto hover:border-none mobile-toggle" aria-controls="mobilemenu" aria-expanded="false" aria-label="Toggle navigation">
+          <svg role="presentation" class="mobile-menu__open-icon w-6 h-6" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          <svg role="presentation" class="mobile-menu__close-icon w-6 h-6" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </button>
+      </nav>
+    </div>
+    <div id="mobilemenu" class="mobile-menu right-wrapper fixed overflow-y-scroll top-0 bottom-0 right-0 max-w-full w-full bg-white sm:[&.right-wrapper]:max-w-sm">
+      <div class="relative p-0 bg-white mobile-menu__logo-wrap"></div>
+      <div class="pb-8 mobile-menu__container">
+        <nav class="minimalio-mobile-menu"><ul class="px-8 py-4 mobile-menu__menu">
+          <li class="menu-item mobile-menu__item"><a href="/work/resume/" class="mobile-menu__link">Resume</a></li>
+          <li class="menu-item mobile-menu__item"><a href="/work/bio/" class="mobile-menu__link">Bio</a></li>
+        </ul></nav>
+      </div>
+    </div>
   </header>
-  <main>
+  <div class="site-content overflow-x-hidden" id="page-content">
     {{ content | safe }}
-  </main>
-  <footer class="site-footer">
-    <p>© {{ "now" | year }} {{ site.title }}{% if site.email %} · <a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}</p>
+  </div>
+  <footer id="wrapper-footer" class="minimalio-footer">
+    <div class="footer__copyright container">
+      <div class="wrapper footer__wrapper">
+        <div id="copyright" class="footer__section">
+          <div class="footer__section-row row">
+            <div class="w-full footer__left md:w-1/3">
+              <div class="site-info"><span class="flex justify-center footer__copyright-first md:justify-start"><span class="mr-4 footer__copyright-first-copy">{% if site.email %}<a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}</span></span></div>
+            </div>
+            <div class="flex justify-center w-full mt-4 text-center footer__center md:w-1/3 md:mt-0"></div>
+            <div class="w-full footer__right md:w-1/3"><div class="flex justify-center mt-4 footer__copyright-last md:justify-end md:mt-0"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
+</div>
+<script>
+  (function () {
+    var b = document.querySelector('.mobile-toggle'), m = document.getElementById('mobilemenu');
+    b.addEventListener('click', function () {
+      var on = !m.classList.contains('is-active');
+      m.classList.toggle('is-active', on); b.classList.toggle('is-active', on);
+      b.setAttribute('aria-expanded', on); document.body.style.overflow = on ? 'hidden' : '';
+    });
+  })();
+</script>
 </body>
 </html>

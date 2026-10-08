@@ -1,17 +1,67 @@
 ---
 layout: base.njk
 title: Mikel Washington
-permalink: /work/
+bodyClass: home blog wp-embed-responsive wp-theme-minimalio
+pagination:
+  data: collections.projects
+  size: 12
+  alias: projects
+permalink: "/work/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
 ---
-<h1 class="visually-hidden">Work</h1>
-<ul class="grid">
-{% for p in collections.projects %}
-  <li>
-    <a href="{{ p.url }}">
-      <img src="{{ p.data.thumbnail }}" alt="" loading="lazy">
-      <span class="title">{{ p.data.title }}</span>
-      <span class="year">{{ p.date | year }}</span>
-    </a>
-  </li>
-{% endfor %}
-</ul>
+<div class="wrapper" id="archive-wrapper">
+  <div class="container" id="content" tabindex="-1">
+    <div class="row">
+      <div class="lg:grow lg:shrink-0 lg:basis-0 content-area" id="primary">
+        <main class="w-full site-main" id="main">
+          <div class="posts overflow-hidden grid w-full pb-12 lg:pb-16">
+            <div class="pt-0 pb-8 m-0 posts__container">
+              <div class="flex items-center justify-between block m-0 posts__row">
+                <div class="justify-between block w-full posts__form">
+                  <div class="flex flex-wrap items-center justify-start posts__categories-wrapper gap-x-4 lg:gap-x-8 gap-y-4">
+                    <a href="/work/" class="posts__tab checked inline-block bg-transparent h-fit rounded-none"><span class="posts__tab-label block">All</span></a>
+                    <a href="/work/" class="posts__tab inline-block bg-transparent h-fit rounded-none"><span class="posts__tab-label">Uncategorized</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="blog-post-type gap_1 aspect-ratio-">
+              <div class="posts__container">
+                <div class="grid grid-cols-1 sm:grid-cols-2 posts__row lg:grid-cols-4">
+                  {% for p in projects %}
+                  <div class="post-item">
+                    <div class="relative w-full post-card blog-post-card-1">
+                      <a class="absolute top-0 bottom-0 left-0 right-0 z-20 no-underline opacity-0 post-card__link" href="{{ p.url }}">{{ p.data.title }}</a>
+                      <figure class="relative w-full h-auto post-card__image">
+                        <img src="{{ p.data.thumbnail }}" class="attachment-large size-large" alt="" loading="lazy">
+                        <div class="absolute top-0 bottom-0 left-0 right-0 z-10 overflow-auto transition-opacity duration-300 bg-black opacity-0 post-card__overlay"></div>
+                      </figure>
+                      <div class="overflow-auto post-card__body">
+                        <h1 class="py-4 m-0 break-words post-card__heading">{{ p.data.title }}</h1>
+                        <div class="pb-4 post-card__categories">Uncategorized</div>
+                        <div class="pb-4 post-card__date">{{ p.date | longDate }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                {% if pagination.pages.length > 1 %}
+                <div class="mt-8 posts__pagination pagination">
+                  <nav class="navigation pagination" aria-label="Posts pagination">
+                    <h2 class="screen-reader-text">Posts pagination</h2>
+                    <div class="nav-links">
+                      {% if pagination.href.previous %}<a class="prev page-numbers" href="{{ pagination.href.previous }}">Previous Page</a>{% endif %}
+                      {% for href in pagination.hrefs %}{% if loop.index0 == pagination.pageNumber %}<span aria-current="page" class="page-numbers current">{{ loop.index }}</span>{% else %}<a class="page-numbers" href="{{ href }}">{{ loop.index }}</a>{% endif %}
+                      {% endfor %}
+                      {% if pagination.href.next %}<a class="next page-numbers" href="{{ pagination.href.next }}">Next Page</a>{% endif %}
+                    </div>
+                  </nav>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>

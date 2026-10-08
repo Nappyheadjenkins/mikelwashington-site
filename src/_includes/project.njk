@@ -1,14 +1,22 @@
 ---
 layout: base.njk
+bodyClass: post-template-default single single-post single-format-standard wp-embed-responsive wp-theme-minimalio
 ---
-<article class="project">
-  <h1>{{ title }}</h1>
-  <p class="meta"><time datetime="{{ page.date | isoDate }}">{{ page.date | year }}</time></p>
-  {% if content | trim %}<div class="prose">{{ content | safe }}</div>{% endif %}
-  <div class="gallery">
-    {% for img in images %}
-    <a href="{{ img }}"><img src="{{ img }}" alt="{{ title }}, image {{ loop.index }}" loading="lazy"></a>
-    {% endfor %}
+<div class="wrapper" id="single-wrapper">
+  <div class="single-post">
+    <div class="single-post__content container" id="content" tabindex="-1">
+      <div class="row">
+        <div class="lg:grow lg:shrink-0 lg:basis-0 content-area" id="primary">
+          <main class="site-main" id="main">
+            <article class="post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+              <header class="entry-header"></header>
+              <div class="entry-content">
+{{ content | safe }}
+              </div>
+            </article>
+          </main>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="back"><a href="/work/">← All work</a></p>
-</article>
+</div>

@@ -8,6 +8,9 @@ export default function (eleventyConfig) {
   );
 
   eleventyConfig.addFilter("year", (d) => (d === "now" ? new Date() : new Date(d)).getUTCFullYear());
+  eleventyConfig.addFilter("longDate", (d) =>
+    new Date(d).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })
+  );
   eleventyConfig.addFilter("isoDate", (d) => new Date(d).toISOString().slice(0, 10));
 
   return {

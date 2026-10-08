@@ -3,15 +3,14 @@ title: "Nakimuli Web Site Refresh"
 date: 2013-11-21
 permalink: /work/2013/11/21/nakimuli-web-site-refresh/
 thumbnail: /work/wp-content/uploads/2013/11/nakimuli_thumb.jpg
-images:
-  - /work/wp-content/uploads/2013/11/0625_web7.jpg
-  - /work/wp-content/uploads/2013/11/0574_full_web5.jpg
-  - /work/wp-content/uploads/2013/11/fall2013A.gif
-  - /work/wp-content/uploads/2013/11/splashpageholiday2010.jpg
-  - /work/wp-content/uploads/2013/11/resortsplash3.jpg
-  - /work/wp-content/uploads/2013/11/nakimuli01.jpg
-  - /work/wp-content/uploads/2013/11/nakimuli02.jpg
-  - /work/wp-content/uploads/2013/11/nakimuli03.jpg
 ---
 
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="/work/wp-content/uploads/2013/11/0625_web7.jpg"><img class="alignnone size-large wp-image-239" src="/work/wp-content/uploads/2013/11/0625_web7-1024x682.jpg" alt="0625_web7" width="1024" height="682" srcset="/work/wp-content/uploads/2013/11/0625_web7-1024x682.jpg 1024w, /work/wp-content/uploads/2013/11/0625_web7-300x200.jpg 300w, /work/wp-content/uploads/2013/11/0625_web7.jpg 1066w" sizes="(max-width: 1024px) 100vw, 1024px" /></a><a href="/work/wp-content/uploads/2013/11/0574_full_web5.jpg"><img class="alignnone size-large wp-image-262" src="/work/wp-content/uploads/2013/11/0574_full_web5-1024x683.jpg" alt="0574_full_web5" width="1024" height="683" srcset="/work/wp-content/uploads/2013/11/0574_full_web5-1024x683.jpg 1024w, /work/wp-content/uploads/2013/11/0574_full_web5-300x200.jpg 300w, /work/wp-content/uploads/2013/11/0574_full_web5.jpg 1066w" sizes="(max-width: 1024px) 100vw, 1024px" /></a></p>
+<p>&nbsp;</p>
+<p><a href="/work/wp-content/uploads/2013/11/fall2013A.gif"><img class="alignnone size-full wp-image-59" src="/work/wp-content/uploads/2013/11/fall2013A.gif" alt="fall2013A" width="800" height="800" /></a></p>
+<p>&nbsp;</p>
+<p><img loading="lazy" class="alignnone size-full wp-image-31" src="/work/wp-content/uploads/2013/11/splashpageholiday2010.jpg" alt="splashpageholiday2010" width="937" height="630" srcset="/work/wp-content/uploads/2013/11/splashpageholiday2010.jpg 937w, /work/wp-content/uploads/2013/11/splashpageholiday2010-300x201.jpg 300w, /work/wp-content/uploads/2013/11/splashpageholiday2010-624x419.jpg 624w" sizes="auto, (max-width: 937px) 100vw, 937px" /></p>
+<p><a href="/work/wp-content/uploads/2013/11/resortsplash3.jpg"><img loading="lazy" class="alignnone size-full wp-image-48" src="/work/wp-content/uploads/2013/11/resortsplash3.jpg" alt="resortsplash3" width="937" height="630" srcset="/work/wp-content/uploads/2013/11/resortsplash3.jpg 937w, /work/wp-content/uploads/2013/11/resortsplash3-300x201.jpg 300w, /work/wp-content/uploads/2013/11/resortsplash3-624x419.jpg 624w" sizes="auto, (max-width: 937px) 100vw, 937px" /></a></p>
+<p><a href="/work/wp-content/uploads/2013/11/nakimuli01.jpg"><img loading="lazy" class="alignnone size-full wp-image-49" src="/work/wp-content/uploads/2013/11/nakimuli01.jpg" alt="nakimuli01" width="1181" height="845" srcset="/work/wp-content/uploads/2013/11/nakimuli01.jpg 1181w, /work/wp-content/uploads/2013/11/nakimuli01-300x214.jpg 300w, /work/wp-content/uploads/2013/11/nakimuli01-1024x732.jpg 1024w, /work/wp-content/uploads/2013/11/nakimuli01-624x446.jpg 624w" sizes="auto, (max-width: 1181px) 100vw, 1181px" /></a> <a href="/work/wp-content/uploads/2013/11/nakimuli02.jpg"><img loading="lazy" class="alignnone size-full wp-image-50" src="/work/wp-content/uploads/2013/11/nakimuli02.jpg" alt="nakimuli02" width="1183" height="842" srcset="/work/wp-content/uploads/2013/11/nakimuli02.jpg 1183w, /work/wp-content/uploads/2013/11/nakimuli02-300x213.jpg 300w, /work/wp-content/uploads/2013/11/nakimuli02-1024x728.jpg 1024w, /work/wp-content/uploads/2013/11/nakimuli02-624x444.jpg 624w" sizes="auto, (max-width: 1183px) 100vw, 1183px" /></a> <a href="/work/wp-content/uploads/2013/11/nakimuli03.jpg"><img loading="lazy" class="alignnone size-full wp-image-51" src="/work/wp-content/uploads/2013/11/nakimuli03.jpg" alt="nakimuli03" width="1047" height="405" srcset="/work/wp-content/uploads/2013/11/nakimuli03.jpg 1047w, /work/wp-content/uploads/2013/11/nakimuli03-300x116.jpg 300w, /work/wp-content/uploads/2013/11/nakimuli03-1024x396.jpg 1024w, /work/wp-content/uploads/2013/11/nakimuli03-624x241.jpg 624w" sizes="auto, (max-width: 1047px) 100vw, 1047px" /></a></p>

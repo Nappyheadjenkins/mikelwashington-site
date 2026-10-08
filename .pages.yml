@@ -17,8 +17,7 @@ content:
       - { name: date, label: Date, type: date, required: true }
       - { name: permalink, label: Web address (leave blank for new projects), type: string, hidden: true }
       - { name: thumbnail, label: Thumbnail (shown on the Work page), type: image, required: true }
-      - { name: images, label: Project images, type: image, list: true }
-      - { name: body, label: Description, type: rich-text }
+      - { name: body, label: Page content (text and images), type: rich-text }
   - name: bio
     label: Bio
     type: file
@@ -27,8 +26,7 @@ content:
       - { name: title, type: string, hidden: true }
       - { name: layout, type: string, hidden: true }
       - { name: permalink, type: string, hidden: true }
-      - { name: photo, label: Headshot, type: image }
-      - { name: body, label: Bio text, type: code }
+      - { name: body, label: Bio, type: rich-text }
   - name: resume
     label: Resume
     type: file
@@ -37,7 +35,7 @@ content:
       - { name: title, type: string, hidden: true }
       - { name: layout, type: string, hidden: true }
       - { name: permalink, type: string, hidden: true }
-      - { name: body, label: Resume text, type: code }
+      - { name: body, label: Resume, type: rich-text }
   - name: site
     label: Site settings
     type: file
@@ -47,4 +45,4 @@ content:
       - { name: title, label: Name, type: string }
       - { name: tagline, label: Tagline, type: string }
       - { name: url, label: Site address, type: string }
-      - { name: email, label: Contact email (shown on every page; blank hides it), type: string }
+      - { name: email, label: Contact email (shown at the bottom of every page; blank hides it), type: string }
