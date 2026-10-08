@@ -1,0 +1,66 @@
+# One-time job: saves a copy of the old WordPress site (pages, styles, screenshots)
+# for design reference. Lives only on the old-site-snapshot branch.
+name: Snapshot old site
+on:
+  workflow_dispatch:
+  push:
+    branches: [old-site-snapshot]
+    paths: [.github/workflows/snapshot-old-site.yml]
+permissions:
+  contents: write
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Point the domain at the old HostGator server
+        run: echo "192.185.41.41 mikelwashington.com www.mikelwashington.com" | sudo tee -a /etc/hosts
+      - name: Mirror pages and styles
+        run: |
+          mkdir -p reference/old-site && cd reference/old-site
+          wget --mirror --page-requisites --adjust-extension --no-parent --no-check-certificate \
+            -e robots=off --level=3 --wait=0.3 \
+            --reject '*.mp4,*.mov,*.zip,*?replytocom*,*wp-json*,*xmlrpc*,*feed*' \
+            https://mikelwashington.com/work/ || true
+          find . -type f | wc -l
+          du -sh .
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Screenshots
+        run: |
+          npm i --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+          cat > shot.mjs <<'JS'
+          import { chromium } from 'playwright';
+          import fs from 'fs';
+          const pages = ['/work/', '/work/resume/', '/work/bio/', '/work/page/2/'];
+          for (const f of fs.readdirSync('src/projects')) {
+            const m = fs.readFileSync('src/projects/' + f, 'utf8').match(/^permalink:\s*"?([^"\n]+)"?/m);
+            if (m) pages.push(m[1]);
+          }
+          fs.mkdirSync('reference/screens', { recursive: true });
+          const browser = await chromium.launch({ args: ['--ignore-certificate-errors'] });
+          for (const [w, h, tag] of [[1440, 900, 'desktop'], [390, 844, 'mobile']]) {
+            const ctx = await browser.newContext({ viewport: { width: w, height: h }, ignoreHTTPSErrors: true });
+            const p = await ctx.newPage();
+            for (const path of pages) {
+              try {
+                await p.goto('https://mikelwashington.com' + path, { waitUntil: 'networkidle', timeout: 60000 });
+                await p.waitForTimeout(1500);
+                const name = path.replace(/\W+/g, '_').replace(/^_|_$/g, '') || 'home';
+                await p.screenshot({ path: `reference/screens/${tag}-${name}.png`, fullPage: true });
+                console.log('ok', tag, path);
+              } catch (e) { console.log('fail', path, e.message); }
+            }
+            await ctx.close();
+          }
+          await browser.close();
+          JS
+          node shot.mjs
+      - name: Commit snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add reference
+          git commit -m "Snapshot of the old WordPress site for design reference" || true
+          git push
